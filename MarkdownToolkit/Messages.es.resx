@@ -123,6 +123,18 @@
   <data name="OK" xml:space="preserve">
     <value>&amp;Aceptar</value>
   </data>
+  <data name="PathInvalid" xml:space="preserve">
+    <value>La ruta seleccionada es invalida.</value>
+  </data>
+  <data name="PathNotFound" xml:space="preserve">
+    <value>La ruta seleccionada ya no existe.</value>
+  </data>
+  <data name="PathNotFoundAndCreate" xml:space="preserve">
+    <value>La ruta seleccionada no existe, ¿desea crearla?</value>
+  </data>
+  <data name="NewVersion" xml:space="preserve">
+    <value>Nueva versión {VERSION} disponible. ¿Desea descargarla ahora?</value>
+  </data>
   <data name="ConfirmExit" xml:space="preserve">
     <value>¿Desea salir sin guardar los cambios?</value>
   </data>

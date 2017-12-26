@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.openFileDialogOpen = new System.Windows.Forms.OpenFileDialog();
             this.splitContainerMarkdown = new System.Windows.Forms.SplitContainer();
             this.textBoxMarkDown = new System.Windows.Forms.RichTextBox();
             this.webBrowserMarkdownPreview = new System.Windows.Forms.WebBrowser();
+            this.openFileDialogOpen = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSaveAs = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogCSS = new System.Windows.Forms.OpenFileDialog();
             this.contextMenuStripEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -67,12 +67,6 @@
             this.toolStripMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // openFileDialogOpen
-            // 
-            this.openFileDialogOpen.DefaultExt = "md";
-            resources.ApplyResources(this.openFileDialogOpen, "openFileDialogOpen");
-            this.openFileDialogOpen.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogOpen_FileOk);
-            // 
             // splitContainerMarkdown
             // 
             this.splitContainerMarkdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
@@ -103,6 +97,12 @@
             // 
             resources.ApplyResources(this.webBrowserMarkdownPreview, "webBrowserMarkdownPreview");
             this.webBrowserMarkdownPreview.Name = "webBrowserMarkdownPreview";
+            // 
+            // openFileDialogOpen
+            // 
+            this.openFileDialogOpen.DefaultExt = "md";
+            resources.ApplyResources(this.openFileDialogOpen, "openFileDialogOpen");
+            this.openFileDialogOpen.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialogOpen_FileOk);
             // 
             // saveFileDialogSaveAs
             // 
@@ -296,6 +296,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.splitContainerMarkdown);
             this.Controls.Add(this.toolStripMenu);
             this.DoubleBuffered = true;
