@@ -20,7 +20,6 @@ See the [changelog](CHANGELOG.md) for changes.
 - [ ] Markdown validation & suggestions
 - [ ] IntelliSense
 - [ ] Edition toolbar
-- [x] Spanish translation
 
 ## Table of contents
 

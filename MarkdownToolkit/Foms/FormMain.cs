@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Pictograms;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Windows.Forms.Pictograms;
 
@@ -28,15 +29,22 @@ namespace Toolkit.Forms
         {
             InitializeComponent();
 
-            Icon = Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetEntryAssembly().Location);
+            Icon = Icon.ExtractAssociatedIcon(Program.Assembly.Location);
 
             // Icons
-            toolStripButtonNew.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.create, 48, Color.White);
-            toolStripButtonOpen.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.folder_open, 48, Color.White);
-            toolStripButtonSave.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.save, 48, Color.White);
-            toolStripButtonPrint.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.print, 48, Color.White);
-            toolStripButtonRefresh.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.refresh, 48, Color.White);
-            toolStripButtonStyle.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.style, 48, Color.White);
+            toolStripButtonFile.SetImage(MaterialDesign.Instance, Program.Icon, 48, SystemColors.Control);
+
+            newToolStripMenuItem.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.insert_drive_file, 48, toolStripMenu.BackColor);
+            openToolStripMenuItem.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.folder_open, 48, toolStripMenu.BackColor);
+            saveToolStripMenuItem.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.save, 48, toolStripMenu.BackColor);
+            saveAsToolStripMenuItem.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.save, 48, toolStripMenu.BackColor);
+            exportToolStripMenuItem.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.import_export, 48, toolStripMenu.BackColor);
+
+            toolStripButtonPrint.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.print, 48, SystemColors.Control);
+            toolStripButtonRefresh.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.refresh, 48, SystemColors.Control);
+            toolStripButtonStyle.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.style, 48, SystemColors.Control);
+
+            toolStripButtonUpdates.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.system_update_alt, 48, SystemColors.Control);
 
             toolStripMenuItemSwapDivider.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.linear_scale, 48, toolStripMenu.BackColor);
             toolStripMenuItemAutoRefresh.SetImage(MaterialDesign.Instance, MaterialDesign.IconType.autorenew, 48, toolStripMenu.BackColor);
@@ -66,7 +74,7 @@ namespace Toolkit.Forms
             }
         }
 
-        private void saveFileDialogSaveAs_FileOk(object sender, CancelEventArgs e)
+        private void SaveFileDialogSaveAs_FileOk(object sender, CancelEventArgs e)
         {
             var _FileName = saveFileDialogSaveAs.FileName;
             var _FileContent = textBoxMarkDown.Text;
@@ -83,18 +91,18 @@ namespace Toolkit.Forms
             }
         }
 
-        private void saveFileDialogExport_FileOk(object sender, CancelEventArgs e)
+        private void SaveFileDialogExport_FileOk(object sender, CancelEventArgs e)
         {
             File.WriteAllText(saveFileDialogExport.FileName, webBrowserMarkdownPreview.DocumentText);
         }
 
-        private void openFileDialogCSS_FileOk(object sender, CancelEventArgs e)
+        private void OpenFileDialogCSS_FileOk(object sender, CancelEventArgs e)
         {
             StyleSheet = File.ReadAllText(openFileDialogCSS.FileName);
-            toolStripButtonRefresh_Click(sender, e);
+            ToolStripButtonRefresh_Click(sender, e);
         }
 
-        private void toolStripButtonNew_Click(object sender, EventArgs e)
+        private void ToolStripButtonNew_Click(object sender, EventArgs e)
         {
             var result = false;
             if (HasChanged())
@@ -110,9 +118,9 @@ namespace Toolkit.Forms
                     case DialogResult.OK:
                     case DialogResult.Yes:
                         if (string.IsNullOrEmpty(FileName))
-                            toolStripButtonSaveAs_Click(sender, e);
+                            ToolStripButtonSaveAs_Click(sender, e);
                         else
-                            toolStripButtonSave_Click(sender, e);
+                            ToolStripButtonSave_Click(sender, e);
                         result = true;
                         break;
 
@@ -133,7 +141,7 @@ namespace Toolkit.Forms
             }
         }
 
-        private void toolStripButtonOpen_Click(object sender, EventArgs e)
+        private void ToolStripButtonOpen_Click(object sender, EventArgs e)
         {
             if (HasChanged())
             {
@@ -148,9 +156,9 @@ namespace Toolkit.Forms
                     case DialogResult.OK:
                     case DialogResult.Yes:
                         if (string.IsNullOrEmpty(FileName))
-                            toolStripButtonSaveAs_Click(sender, e);
+                            ToolStripButtonSaveAs_Click(sender, e);
                         else
-                            toolStripButtonSave_Click(sender, e);
+                            ToolStripButtonSave_Click(sender, e);
                         break;
 
                     default:
@@ -160,40 +168,40 @@ namespace Toolkit.Forms
             openFileDialogOpen.ShowDialog();
         }
 
-        private void toolStripButtonSave_Click(object sender, EventArgs e)
+        private void ToolStripButtonSave_Click(object sender, EventArgs e)
         {
             saveFileDialogSaveAs.FileName = FileName;
             if (string.IsNullOrEmpty(FileName))
-                toolStripButtonSaveAs_Click(sender, e);
+                ToolStripButtonSaveAs_Click(sender, e);
             else
-                saveFileDialogSaveAs_FileOk(sender, new CancelEventArgs());
+                SaveFileDialogSaveAs_FileOk(sender, new CancelEventArgs());
         }
 
-        private void toolStripButtonSaveAs_Click(object sender, EventArgs e)
+        private void ToolStripButtonSaveAs_Click(object sender, EventArgs e)
         {
             saveFileDialogSaveAs.ShowDialog();
         }
 
-        private void toolStripButtonExport_Click(object sender, EventArgs e)
+        private void ToolStripButtonExport_Click(object sender, EventArgs e)
         {
             saveFileDialogExport.ShowDialog();
         }
 
         #region Printing
 
-        private void toolStripButtonPrint_Click(object sender, EventArgs e)
+        private void ToolStripButtonPrint_Click(object sender, EventArgs e)
         {
             webBrowserMarkdownPreview.ShowPrintDialog();
         }
 
-        private void toolStripButtonPageSettings_Click(object sender, EventArgs e)
+        private void ToolStripButtonPageSettings_Click(object sender, EventArgs e)
         {
             pageSetupDialogMain.ShowDialog();
         }
 
         #endregion Printing
 
-        private void toolStripButtonRefresh_Click(object sender, EventArgs e)
+        private void ToolStripButtonRefresh_Click(object sender, EventArgs e)
         {
             var body = Markdig.Markdown.ToHtml(textBoxMarkDown.Text);
             var style = $"<style>* {{ font-family: '{textBoxMarkDown.Font.FontFamily.Name}';}}</style>";
@@ -205,15 +213,15 @@ namespace Toolkit.Forms
             webBrowserMarkdownPreview.DocumentText = html.ToString();
         }
 
-        private void toolStripButtonStyle_Click(object sender, EventArgs e)
+        private void ToolStripButtonStyle_Click(object sender, EventArgs e)
         {
             openFileDialogCSS.ShowDialog();
         }
 
-        private void textBoxMarkDown_TextChanged(object sender, EventArgs e)
+        private void TextBoxMarkDown_TextChanged(object sender, EventArgs e)
         {
             if (HasAutorefresh())
-                toolStripButtonRefresh_Click(sender, e);
+                ToolStripButtonRefresh_Click(sender, e);
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -232,9 +240,9 @@ namespace Toolkit.Forms
                     case DialogResult.No:
                         saveFileDialogSaveAs.FileName = FileName;
                         if (string.IsNullOrEmpty(FileName))
-                            toolStripButtonSaveAs_Click(sender, e);
+                            ToolStripButtonSaveAs_Click(sender, e);
                         else
-                            toolStripButtonSave_Click(sender, e);
+                            ToolStripButtonSave_Click(sender, e);
                         break;
 
                     default:
@@ -245,35 +253,35 @@ namespace Toolkit.Forms
 
         #region Clipboard
 
-        private void toolStripMenuItemCut_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemCut_Click(object sender, EventArgs e)
         {
             textBoxMarkDown.Cut();
         }
 
-        private void toolStripMenuItemCopy_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemCopy_Click(object sender, EventArgs e)
         {
             textBoxMarkDown.Copy();
         }
 
-        private void toolStripMenuItemPaste_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemPaste_Click(object sender, EventArgs e)
         {
             textBoxMarkDown.Paste();
         }
 
         #endregion Clipboard
 
-        private void toolStripButtonAbout_Click(object sender, EventArgs e)
+        private void ToolStripButtonAbout_Click(object sender, EventArgs e)
         {
             var child = new FormAbout();
             child.ShowDialog();
         }
 
-        private void toolStripButtonExit_Click(object sender, EventArgs e)
+        private void ToolStripButtonExit_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void toolStripMenuItemSwapDivider_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemSwapDivider_Click(object sender, EventArgs e)
         {
             splitContainerMarkdown.Orientation = toolStripMenuItemSwapDivider.Checked ? Orientation.Horizontal : Orientation.Vertical;
             if (splitContainerMarkdown.Orientation == Orientation.Vertical)
@@ -283,11 +291,27 @@ namespace Toolkit.Forms
             Properties.Settings.Default.Save();
         }
 
-        private void toolStripMenuItemAutoRefresh_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemAutoRefresh_Click(object sender, EventArgs e)
         {
             toolStripButtonRefresh.Enabled = !toolStripMenuItemAutoRefresh.Checked;
             toolStripButtonRefresh.Checked = toolStripMenuItemAutoRefresh.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void ToolStripButtonUpdates_Click(object sender, EventArgs e)
+        {
+            var checkForUpdates = !toolStripButtonUpdates.Checked;
+            toolStripButtonUpdates.Checked = checkForUpdates;
+            Properties.Settings.Default.CheckForUpdates = checkForUpdates;
+            Properties.Settings.Default.Save();
+        }
+
+        private async void FormMain_Load(object sender, EventArgs e)
+        {
+            toolStripButtonUpdates.Checked = Properties.Settings.Default.CheckForUpdates;
+
+            if (Properties.Settings.Default.CheckForUpdates)
+                await GitHubInfo.CheckForUpdateAsync();
         }
     }
 }
