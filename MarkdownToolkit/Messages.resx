@@ -120,13 +120,25 @@
   <data name="Cancel" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
+  <data name="NewVersion" xml:space="preserve">
+    <value>New version {VERSION} is available. Do you want to download now?</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="PathInvalid" xml:space="preserve">
+    <value>The selected path is invalid.</value>
+  </data>
+  <data name="PathNotFound" xml:space="preserve">
+    <value>The selected path don't exist anymore.</value>
+  </data>
+  <data name="PathNotFoundAndCreate" xml:space="preserve">
+    <value>The selected path don't exist, do you want to create?</value>
+  </data>
   <data name="ConfirmExit" xml:space="preserve">
     <value>Do you want to exit without saving changes?</value>
   </data>
   <data name="ConfirmSave" xml:space="preserve">
     <value>Do you want to save current file?</value>
-  </data>
-  <data name="OK" xml:space="preserve">
-    <value>&amp;OK</value>
   </data>
 </root>

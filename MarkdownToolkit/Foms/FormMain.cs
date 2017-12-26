@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Pictograms;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Pictograms;
 
@@ -16,7 +10,6 @@ namespace Toolkit.Forms
 {
     public partial class FormMain : Form
     {
-
         public string FileName { get; set; } = string.Empty;
         public string FileContent { get; set; } = string.Empty;
         public string StyleSheet { get; set; } = string.Empty;
@@ -25,6 +18,7 @@ namespace Toolkit.Forms
         {
             return textBoxMarkDown.Text != FileContent;
         }
+
         public bool HasAutorefresh()
         {
             return toolStripMenuItemAutoRefresh.Checked;
@@ -71,6 +65,7 @@ namespace Toolkit.Forms
                 e.Cancel = true;
             }
         }
+
         private void saveFileDialogSaveAs_FileOk(object sender, CancelEventArgs e)
         {
             var _FileName = saveFileDialogSaveAs.FileName;
@@ -87,10 +82,12 @@ namespace Toolkit.Forms
                 e.Cancel = true;
             }
         }
+
         private void saveFileDialogExport_FileOk(object sender, CancelEventArgs e)
         {
             File.WriteAllText(saveFileDialogExport.FileName, webBrowserMarkdownPreview.DocumentText);
         }
+
         private void openFileDialogCSS_FileOk(object sender, CancelEventArgs e)
         {
             StyleSheet = File.ReadAllText(openFileDialogCSS.FileName);
@@ -109,6 +106,7 @@ namespace Toolkit.Forms
                     case DialogResult.Abort:
                     case DialogResult.Cancel:
                         return;
+
                     case DialogResult.OK:
                     case DialogResult.Yes:
                         if (string.IsNullOrEmpty(FileName))
@@ -117,6 +115,7 @@ namespace Toolkit.Forms
                             toolStripButtonSave_Click(sender, e);
                         result = true;
                         break;
+
                     default:
                         result = true;
                         break;
@@ -132,8 +131,8 @@ namespace Toolkit.Forms
                 textBoxMarkDown.Text = string.Empty;
                 webBrowserMarkdownPreview.DocumentText = string.Empty;
             }
-
         }
+
         private void toolStripButtonOpen_Click(object sender, EventArgs e)
         {
             if (HasChanged())
@@ -145,6 +144,7 @@ namespace Toolkit.Forms
                     case DialogResult.Abort:
                     case DialogResult.Cancel:
                         return;
+
                     case DialogResult.OK:
                     case DialogResult.Yes:
                         if (string.IsNullOrEmpty(FileName))
@@ -152,12 +152,14 @@ namespace Toolkit.Forms
                         else
                             toolStripButtonSave_Click(sender, e);
                         break;
+
                     default:
                         break;
                 }
             }
             openFileDialogOpen.ShowDialog();
         }
+
         private void toolStripButtonSave_Click(object sender, EventArgs e)
         {
             saveFileDialogSaveAs.FileName = FileName;
@@ -166,10 +168,12 @@ namespace Toolkit.Forms
             else
                 saveFileDialogSaveAs_FileOk(sender, new CancelEventArgs());
         }
+
         private void toolStripButtonSaveAs_Click(object sender, EventArgs e)
         {
             saveFileDialogSaveAs.ShowDialog();
         }
+
         private void toolStripButtonExport_Click(object sender, EventArgs e)
         {
             saveFileDialogExport.ShowDialog();
@@ -181,12 +185,13 @@ namespace Toolkit.Forms
         {
             webBrowserMarkdownPreview.ShowPrintDialog();
         }
+
         private void toolStripButtonPageSettings_Click(object sender, EventArgs e)
         {
             pageSetupDialogMain.ShowDialog();
         }
 
-        #endregion
+        #endregion Printing
 
         private void toolStripButtonRefresh_Click(object sender, EventArgs e)
         {
@@ -199,6 +204,7 @@ namespace Toolkit.Forms
 
             webBrowserMarkdownPreview.DocumentText = html.ToString();
         }
+
         private void toolStripButtonStyle_Click(object sender, EventArgs e)
         {
             openFileDialogCSS.ShowDialog();
@@ -222,6 +228,7 @@ namespace Toolkit.Forms
                     case DialogResult.Cancel:
                         e.Cancel = true;
                         return;
+
                     case DialogResult.No:
                         saveFileDialogSaveAs.FileName = FileName;
                         if (string.IsNullOrEmpty(FileName))
@@ -229,6 +236,7 @@ namespace Toolkit.Forms
                         else
                             toolStripButtonSave_Click(sender, e);
                         break;
+
                     default:
                         break;
                 }
@@ -241,22 +249,25 @@ namespace Toolkit.Forms
         {
             textBoxMarkDown.Cut();
         }
+
         private void toolStripMenuItemCopy_Click(object sender, EventArgs e)
         {
             textBoxMarkDown.Copy();
         }
+
         private void toolStripMenuItemPaste_Click(object sender, EventArgs e)
         {
             textBoxMarkDown.Paste();
         }
 
-        #endregion
+        #endregion Clipboard
 
         private void toolStripButtonAbout_Click(object sender, EventArgs e)
         {
             var child = new FormAbout();
             child.ShowDialog();
         }
+
         private void toolStripButtonExit_Click(object sender, EventArgs e)
         {
             Close();
@@ -271,12 +282,12 @@ namespace Toolkit.Forms
                 splitContainerMarkdown.SplitterDistance = (splitContainerMarkdown.Height + splitContainerMarkdown.SplitterWidth) / 2;
             Properties.Settings.Default.Save();
         }
+
         private void toolStripMenuItemAutoRefresh_Click(object sender, EventArgs e)
         {
             toolStripButtonRefresh.Enabled = !toolStripMenuItemAutoRefresh.Checked;
             toolStripButtonRefresh.Checked = toolStripMenuItemAutoRefresh.Checked;
             Properties.Settings.Default.Save();
         }
-
     }
 }

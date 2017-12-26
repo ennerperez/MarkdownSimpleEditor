@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="openFileDialogOpen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="openFileDialogOpen.Filter" xml:space="preserve">
-    <value>Markdown file|*.md|Text document|*.txt|All files|*.*</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="splitContainerMarkdown.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -141,11 +135,14 @@
     <value>9, 9</value>
   </data>
   <data name="textBoxMarkDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 524</value>
+    <value>270, 423</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="textBoxMarkDown.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="textBoxMarkDown.Text" xml:space="preserve">
+    <value />
   </data>
   <data name="textBoxMarkDown.WordWrap" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -187,7 +184,7 @@
     <value>20, 20</value>
   </data>
   <data name="webBrowserMarkdownPreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 524</value>
+    <value>266, 423</value>
   </data>
   <data name="webBrowserMarkdownPreview.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -220,7 +217,7 @@
     <value>1</value>
   </data>
   <data name="splitContainerMarkdown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>576, 542</value>
+    <value>576, 441</value>
   </data>
   <data name="splitContainerMarkdown.SplitterDistance" type="System.Int32, mscorlib">
     <value>288</value>
@@ -240,6 +237,12 @@
   <data name="&gt;&gt;splitContainerMarkdown.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="openFileDialogOpen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="openFileDialogOpen.Filter" xml:space="preserve">
+    <value>Markdown file|*.md|Text document|*.txt|All files|*.*</value>
+  </data>
   <metadata name="saveFileDialogSaveAs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>180, 17</value>
   </metadata>
@@ -255,6 +258,15 @@
   <metadata name="contextMenuStripEdit.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>502, 17</value>
   </metadata>
+  <data name="contextMenuStripEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 70</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStripEdit.Name" xml:space="preserve">
+    <value>contextMenuStripEdit</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStripEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="toolStripMenuItem1.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+X</value>
   </data>
@@ -282,15 +294,6 @@
   <data name="toolStripMenuItem3.Text" xml:space="preserve">
     <value>&amp;Paste</value>
   </data>
-  <data name="contextMenuStripEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 70</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStripEdit.Name" xml:space="preserve">
-    <value>contextMenuStripEdit</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStripEdit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <metadata name="printDialogMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>672, 17</value>
   </metadata>
@@ -314,6 +317,30 @@
   </data>
   <data name="toolStripMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
+  </data>
+  <data name="toolStripMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="toolStripMenu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="toolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 441</value>
+  </data>
+  <data name="toolStripMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenu.Name" xml:space="preserve">
+    <value>toolStripMenu</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenu.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="toolStripButtonNew.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -537,18 +564,6 @@
   <data name="toolStripButtonSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="toolStripMenuItemSwapDivider.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="toolStripMenuItemSwapDivider.Text" xml:space="preserve">
-    <value>&amp;Swap divider</value>
-  </data>
-  <data name="toolStripMenuItemAutoRefresh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="toolStripMenuItemAutoRefresh.Text" xml:space="preserve">
-    <value>&amp;Autorefresh</value>
-  </data>
   <data name="toolStripButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -574,29 +589,17 @@
   <data name="toolStripButtonSettings.Text" xml:space="preserve">
     <value>Se&amp;ttings</value>
   </data>
-  <data name="toolStripMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="toolStripMenuItemSwapDivider.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
   </data>
-  <data name="toolStripMenu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="toolStripMenuItemSwapDivider.Text" xml:space="preserve">
+    <value>&amp;Swap divider</value>
   </data>
-  <data name="toolStripMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 542</value>
+  <data name="toolStripMenuItemAutoRefresh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
   </data>
-  <data name="toolStripMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenu.Name" xml:space="preserve">
-    <value>toolStripMenu</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenu.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="toolStripMenuItemAutoRefresh.Text" xml:space="preserve">
+    <value>&amp;Autorefresh</value>
   </data>
   <metadata name="toolTipMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1441, 17</value>
@@ -611,7 +614,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>624, 542</value>
+    <value>624, 441</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>640, 480</value>

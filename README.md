@@ -1,8 +1,8 @@
 ![logo](.editoricon.png)
 
-# Markdown Toolkit for Devigners
+# Markdown Toolkit
 
-Markdown Toolkit is simple markdown editor
+Simple markdown editor
 
 [![Build status](https://ci.appveyor.com/api/projects/status/8fkqxc4jn72tedjt?svg=true)](https://ci.appveyor.com/project/ennerperez/markdown-toolkit)
 
